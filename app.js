@@ -42,7 +42,8 @@
 // Execution stack: any time a function is invoked, a new execution context is created and put on top of execution stack. 
 // The top most execution context in the stack is the one that is currently running.
 
-// Variable environment: Where the variable lives (memory space). Every execution context has it's own distinct variable environment
+// Variable environment: Where the variable lives (memory space). Every execution context has it's own distinct variable environment. 
+// For global execution context, it's variable environment is the window object.
 
 function b() {
     var myVar;
