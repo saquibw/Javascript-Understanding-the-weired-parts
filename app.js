@@ -59,3 +59,6 @@ var myVar = 1;
 console.log(myVar);
 a();
 
+// Scope chain
+
+//Scope: Where a variable is available in your code
