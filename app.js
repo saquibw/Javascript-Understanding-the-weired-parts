@@ -46,23 +46,24 @@
 // For global execution context, it's variable environment is the window object.
 // When a function is declared, it also gets added to the variable environment of that execution context
 
-function b() {
-    var myVar;
-    console.log(myVar);
-}
+
 
 function a() {
+    function b() {
+        console.log(myVar);
+    }
+    b();
+
     var myVar = 2;
     console.log(myVar);
-    b();
 }
 
 var myVar = 1;
-console.log(myVar);
+// console.log(myVar);
 a();
 
 // Scope chain
-// Every execution context has a reference to it's outer environment (variable environment). Means, where the function is lexically located.
+// Every execution context has a reference to it's outer environment ( variable environment). Means, where the function is lexically located.
 // In case of defining outer reference, Javascript cares about the lexical environment, means where the function is located physically.
 // If a variable can't be find in the current execution context, javascript will look at the outer reference, where the function/ variable is located physically
 // This going down the line is called scope chain
@@ -73,11 +74,19 @@ a();
 
 // Asynchronous: More than one at a time
 // Asynchronous callback: 
-// A browser has multiple engines: Javascript engine, Rendering engine (vor view), HTTP Request (for requests)
-// Javascript engine is synchronous. But is has to talk to other engines. That's  being done through asynchronous callback.
+// A browser has multiple engines: Javascript engine, Rendering engine (for view), HTTP Request (for requests)
+// Javascript engine is synchronous. But is has to talk to other engines. That's being done through asynchronous callback.
 // Asynchronous means, what's happening outside the JS engine
 // Besides execution stack, there is another structure/ list in JS engine => Event Queue
 // If browser, outside of JS engine has an event, it puts that event inside event queue asynchronously
 // When the execution stack is empty, JS engine looks at event queue periodically for events (this is called event loop)
-// A eventHandler function is bind with that event. JS engine creates execution context for that and executes the function
+// An eventHandler function is bind with that event. JS engine creates execution context for that and executes the function
 // An event is being handled by a event handler
+
+// Chapter 3
+// Dynamic typing: JS engine figures out type of value inside a variable during execution.
+// JS has 6 primitive types: 1.Undefined 2.NULL 3.Boolean 4.Number 5.String 6.Symbol (ES6)
+// Primitive represents a single value, not an object
+// Operators: Operator is actually functions. An infix notatoin (3 + 4). Here + is an infix notation
+// Operator precedence: Operation priority order, which operator gets called first if used in same line of code
+// Associativity: If multiple operators have same precedence, then which order operation functions get called, right-to-left (Right associativity) or left-to-right (Left associativity).
